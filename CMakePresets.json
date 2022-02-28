@@ -1,0 +1,72 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "default",
+            "displayName": "Default",
+            "description": "Default - Unix Makefiles",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Windows x64 - Debug",
+            "displayName": "Windows x64 - Debug",
+            "description": "Windows x64 - Debug - MSVC",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "toolset": "host=x86",
+            "architecture": "x64",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Windows x64 - Release",
+            "displayName": "Windows x64 - Release",
+            "description": "Windows x64 - Release - MSVC",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "toolset": "host=x86",
+            "architecture": "x64",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "Emscripten",
+            "displayName": "Emscripten",
+            "description": "Sets Emscripten Toolchain",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "toolchainFile": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default - debug",
+            "displayName": "Default - Debug",
+            "configuration": "Debug",
+            "configurePreset": "default"
+        },
+        {
+            "name": "Windows x64 - Debug",
+            "configurePreset": "Windows x64 - Debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "Windows x64 - Release",
+            "configurePreset": "Windows x64 - Release",
+            "configuration": "Release"
+        }
+    ]
+}
