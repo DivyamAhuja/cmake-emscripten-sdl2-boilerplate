@@ -12,12 +12,12 @@ The CMake Prefix works well with VSCode.
 
 - To List Presets
   
-```PS
+```
 cmake --list-presets
 ```
 
 - To build
 
-```PS
+```
 cmake --preset <preset_name> -S . -B ./build
 ```
